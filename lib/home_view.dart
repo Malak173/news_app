@@ -46,7 +46,7 @@ class _HomeViewState extends State<HomeView> {
                 'data',
                 style: TextStyle(color: Colors.black, fontSize: 25),
               ),
-              Text('data'),
+              Text('dataaaaaaaaaa'),
             ],
           )
         ],
