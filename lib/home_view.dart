@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_ui/widgets/category_list_view.dart';
+import 'package:news_app_ui/widgets/news_list_views.dart';
+
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -36,21 +38,17 @@ class _HomeViewState extends State<HomeView> {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          const CategortListView(),
-          Column(
-            children: [
-              Image.asset('assets/sports.avif'),
-              const Text(
-                'data',
-                style: TextStyle(color: Colors.black, fontSize: 25),
-              ),
-              Text('dataaaaaaaaaa'),
-            ],
-          )
-        ],
+      body:const Padding(
+        padding: EdgeInsets.all(13.0),
+        child: Column(
+          children: [
+            CategortListView(),
+            SizedBox(height: 10,),
+            Expanded(child: NewsListView()),
+          ],
+        ),
       ),
     );
   }
 }
+
