@@ -38,17 +38,21 @@ class _HomeViewState extends State<HomeView> {
           ],
         ),
       ),
-      body:const Padding(
+      body: const Padding(
         padding: EdgeInsets.all(13.0),
-        child: Column(
-          children: [
-            CategortListView(),
-            SizedBox(height: 10,),
-            Expanded(child: NewsListView()),
+        child: CustomScrollView(
+          slivers: [
+           SliverToBoxAdapter(
+              child:CategortListView(),
+           ),
+           SliverToBoxAdapter(
+              child:SizedBox(height: 10,),
+           ),
+           NewsListView()
           ],
-        ),
+        )
       ),
     );
   }
 }
-
+  
