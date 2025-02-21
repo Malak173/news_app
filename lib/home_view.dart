@@ -24,14 +24,14 @@ class _HomeViewState extends State<HomeView> {
             Text(
               'News',
               style: TextStyle(
-                  fontSize: 25,
+                  fontSize: 28,
                   fontWeight: FontWeight.bold,
                   color: Colors.black),
             ),
             Text(
               'Cloud',
               style: TextStyle(
-                  fontSize: 25,
+                  fontSize: 28,
                   fontWeight: FontWeight.bold,
                   color: Colors.amber),
             ),
