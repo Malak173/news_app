@@ -1,25 +1,36 @@
 import 'package:dio/dio.dart';
 import 'package:news_app_ui/models/articals.dart';
 
-class NewsServiece {
-  final Dio dio ;
-  NewsServiece(this.dio);
-  Future<List<ArticalModel>> getNews() async{
-    var response = await dio.get(
-      'https://newsapi.org/v2/top-headlines?country=us&apiKey=b906c938a1e34336b7224293542cb545');
-    
-    Map<String,dynamic> jsonData = response.data ;
-    List<dynamic> articals = jsonData['articals'] ?? [];
-    List <ArticalModel> articalsList = [];
-    for (var artical in articals) {
-      ArticalModel articalModel = ArticalModel(
-       image:artical['urlToImage'],
-       subTitle: artical['title'],
-       title:artical['description']);
 
-       articalsList.add(articalModel);
+class NewsService {
+  final Dio dio;
+
+  NewsService(this.dio);
+
+  Future<List<ArticleModel>> getNews({required String category}) async {
+    try {
+      var response = await dio.get(
+          'https://newsapi.org/v2/top-headlines?country=us&apiKey=3c88955c487e4d9db668f011dd85e737&category=$category');
+
+      Map<String, dynamic> jsonData = response.data;
+
+      List<dynamic> articles = jsonData['articles'];
+
+      List<ArticleModel> articlesList = [];
+
+      for (var article in articles) {
+        ArticleModel articleModel = ArticleModel(
+          image: article['urlToImage'],
+          title: article['title'],
+          subTitle: article['description'],
+        );
+        articlesList.add(articleModel);
+      }
+
+      return articlesList;
+    } catch (e) {
+      return [];
     }
-    return articalsList;
   }
 
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app_ui/home_view.dart';
+import 'package:news_app_ui/views/home_view.dart';
 
 void main() {
   runApp(const MyApp());
